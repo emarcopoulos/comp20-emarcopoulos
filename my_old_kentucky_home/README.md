@@ -8,3 +8,5 @@ Completed:
 -wrote a css stylesheet
 
 time worked: 3 hours
+
+obtained information from StackOverflow
