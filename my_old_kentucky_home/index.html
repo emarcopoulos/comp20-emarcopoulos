@@ -24,7 +24,11 @@
     } else if (video.currentTime <= 15) {
       lyrics.innerHTML = "The sun shines bright in My Old Kentucky Home,";
     } else if (video.currentTime <= 21) {
-      lyrics.innerHTML = "'Tis summer, the people are gay;";
+      lyrics.innerHTML = "'Tis summer, the people are gay; <p></p>";
+      var image = document.createElement("img");
+      image.src = "smiley.jpg";
+      image.alt = "smiley face image";
+      lyrics.appendChild(image);
     } else if (video.currentTime <= 28) {
       lyrics.innerHTML = "The corn-top's ripe and the meadow's in the bloom";
     } else if (video.currentTime <= 35) {
@@ -32,7 +36,11 @@
     } else if (video.currentTime <= 42) {
       lyrics.innerHTML = "The young folks roll on the little cabin floor,";
     } else if (video.currentTime <= 49) {
-      lyrics.innerHTML = "All merry, all happy and bright;";
+      lyrics.innerHTML = "All merry, all happy and bright; <p></p>";
+      var image = document.createElement("img");
+      image.src = "sunshine.jpg";
+      image.alt = "sunshine image";
+      lyrics.appendChild(image);
     } else if (video.currentTime <= 56) {
       lyrics.innerHTML = "By 'n' by hard times comes a knocking at the door,";
     } else if (video.currentTime <= 63) {

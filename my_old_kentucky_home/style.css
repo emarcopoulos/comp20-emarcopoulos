@@ -1,0 +1,15 @@
+/* stylesheet for index.html */
+
+#lyrics {
+	text-align: center;
+	font-size: 2em;
+}
+
+#title {
+	text-align: center;
+	font-size: 5em;
+}
+
+#music_video {
+	padding-left: 33%;
+}

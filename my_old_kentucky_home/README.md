@@ -4,9 +4,7 @@ Elias Marcopoulos
 Completed:
 -copied HTML
 -wrote javascript to play lyrics line by line
+-added images to the lyrics
+-wrote a css stylesheet
 
-Need to do:
--write javascript
--write css
-
-time worked: 1 hour
+time worked: 3 hours
