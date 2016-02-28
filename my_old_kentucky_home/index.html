@@ -14,7 +14,41 @@
 <div id="lyrics"></div>
 
 <script>
-	// Complete this section and create a CSS file named style.css
+  document.getElementById("music_video").ontimeupdate = function () {display_lyrics()};
+
+  function display_lyrics() {
+    var video = document.getElementById("music_video");
+    var lyrics = document.getElementById("lyrics");
+    if (video.currentTime < 8) {
+     return;
+    } else if (video.currentTime <= 15) {
+      lyrics.innerHTML = "The sun shines bright in My Old Kentucky Home,";
+    } else if (video.currentTime <= 21) {
+      lyrics.innerHTML = "'Tis summer, the people are gay;";
+    } else if (video.currentTime <= 28) {
+      lyrics.innerHTML = "The corn-top's ripe and the meadow's in the bloom";
+    } else if (video.currentTime <= 35) {
+      lyrics.innerHTML = "While the birds make music all the day.";
+    } else if (video.currentTime <= 42) {
+      lyrics.innerHTML = "The young folks roll on the little cabin floor,";
+    } else if (video.currentTime <= 49) {
+      lyrics.innerHTML = "All merry, all happy and bright;";
+    } else if (video.currentTime <= 56) {
+      lyrics.innerHTML = "By 'n' by hard times comes a knocking at the door,";
+    } else if (video.currentTime <= 63) {
+      lyrics.innerHTML = "Then My Old Kentucky Home, good night!";
+    } else if (video.currentTime <= 69) {
+      lyrics.innerHTML = "Weep no more my lady";
+    } else if (video.currentTime <= 76) {
+      lyrics.innerHTML = "Oh weep no more today;";
+    } else if (video.currentTime <= 79) {
+      lyrics.innerHTML = "We will sing one song";
+    } else if (video.currentTime <= 83) {
+      lyrics.innerHTML = "For My Old Kentucky Home";
+    } else {
+      lyrics.innerHTML = "For My Old Kentucky Home, far away";
+    } 
+  }   
 </script>
 </body>
 </html>	

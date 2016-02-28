@@ -3,6 +3,7 @@ Elias Marcopoulos
 
 Completed:
 -copied HTML
+-wrote javascript to play lyrics line by line
 
 Need to do:
 -write javascript
