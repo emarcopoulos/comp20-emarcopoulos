@@ -1,4 +1,4 @@
-// Your JavaScript goes here...
+// Javascript for messages lab
 function parse() {
 	request = new XMLHttpRequest();
 	request.open("GET", "data.json", true);

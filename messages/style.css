@@ -1,1 +1,26 @@
-/* Your CSS here... */
+/* Stylesheet for Messages lab*/
+body {
+	text-align: center;
+	background-color: black;
+}
+
+.name {
+	color: orange;
+	font-size: 1em;
+}
+
+.message {
+	color: white;
+	font-size: 2em;
+}
+
+p {
+	border-radius: 30px;
+	background-color: blue; 
+	padding: 10px;
+}
+
+h1 {
+	font-size: 3em;
+	color: yellow;
+}
