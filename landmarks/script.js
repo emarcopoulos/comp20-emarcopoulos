@@ -135,7 +135,7 @@ function displayMyself () {
 	marker = new google.maps.Marker({
 		position: me,
 		title: "<p>It's Me!</p><p class = 'login'>PAM_FRANCO</p><p id = closestlandmark>The closest landmark to me, "
-		       +closestLandmark.properties.Location_Name+" is "+closestLandmarkdis+" miles away</p>",		
+		       +closestLandmark.properties.Location_Name+", is "+closestLandmarkdis+" miles away</p>",		
 		icon: "Smiley1.png"
 	});
 	marker.setMap(map);

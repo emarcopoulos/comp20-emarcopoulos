@@ -23,3 +23,8 @@ html, body {
 .distance {
 	font-size:.8em;
 }
+
+#closestlandmark {
+	color:red;
+	font-size:2em;
+}
