@@ -1,0 +1,25 @@
+/* Stylesheet for landmarks */
+
+#map {
+	height:100%;
+}
+
+html, body {
+	height:100%;
+	margin:0;
+	padding:0;
+}
+
+.login {
+	color:green;
+	font-size: 1em;
+}
+
+.landmark {
+	font-size:1.2em;
+	color:orange;
+}
+
+.distance {
+	font-size:.8em;
+}

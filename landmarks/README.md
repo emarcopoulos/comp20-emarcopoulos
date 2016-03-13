@@ -15,3 +15,7 @@ Things to do:
 --display landmarks within one mile radius
 	-click on to display detail
 -write css file for page
+
+Collaboration:
+-much of this code was copied from the comp-20 maps examples
+-used havershine formula from stack overflow
