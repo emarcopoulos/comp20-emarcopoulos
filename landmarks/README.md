@@ -19,6 +19,9 @@ Things to do:
 -click on me to display closest landmark
 -and display line between and distance
 
+Time Taken:
+-4 hours
+
 Collaboration:
 -much of this code was used from the comp-20 maps examples
 -used havershine formula from stack overflow
