@@ -37,19 +37,6 @@ function renderMap() {
 	
 	// Update map and go there...
 	map.panTo(me);
-	// Create a marker
-	marker = new google.maps.Marker({
-		position: me,
-		title: "<p>It's Me!</p><p class = 'login'>PAM_FRANCO</p>",		
-		icon: "Smiley1.png"
-	});
-	marker.setMap(map);
-		
-	// Open info window on click of marker
-	google.maps.event.addListener(marker, 'click', function() {
-		infowindow.setContent(marker.title);
-		infowindow.open(map, marker);
-	});
 
 	//after rendering my own position, handle the datastore
 	getClassData();
@@ -64,6 +51,7 @@ function getClassData() {
     	classData = JSON.parse(this.responseText);
     	displayPeople();
     	displayLandmarks();
+    	displayMyself();
 	};
 	sendstring = "login=PAM_FRANCO&lat="+myLat+"&lng="+myLng
 	xhr.send(sendstring);
@@ -113,9 +101,18 @@ function distanceFromMe(lat, lng) {
 	d /= 1.60934 //convert to miles
 	return d;
 }
+var closestLandmark;
+var closestLandmarkdis;
 function displayLandmarks() {
 	for (i = 0; i < classData.landmarks.length; i++) {
 		var dis = distanceFromMe(classData.landmarks[i].geometry.coordinates[1], classData.landmarks[i].geometry.coordinates[0]);
+		if (!i) {
+			closestLandmarkdis = dis;
+			closestLandmark = classData.landmarks[i];
+		} else if (dis < closestLandmarkdis) {
+			closestLandmarkdis = dis;
+			closestLandmark = classData.landmarks[i];
+		}
 		if (dis > 1) { //if more than one mile away
 			continue;
 		}
@@ -133,4 +130,30 @@ function displayLandmarks() {
 			infowindow.open(map, this);
 		});
 	}
+}
+function displayMyself () {
+	marker = new google.maps.Marker({
+		position: me,
+		title: "<p>It's Me!</p><p class = 'login'>PAM_FRANCO</p><p id = closestlandmark>The closest landmark to me, "
+		       +closestLandmark.properties.Location_Name+" is "+closestLandmarkdis+" miles away</p>",		
+		icon: "Smiley1.png"
+	});
+	marker.setMap(map);
+		
+	// Open info window on click of marker
+	var landmarkPath = new google.maps.Polyline({
+    	path: [{lat:myLat, lng:myLng}, {lat:closestLandmark.geometry.coordinates[1], lng:closestLandmark.geometry.coordinates[0]}],
+    	geodesic: true,
+    	strokeColor: '#FF0000',
+    	strokeOpacity: 1.0,
+    	strokeWeight: 1.5
+  	});
+	google.maps.event.addListener(marker, 'click', function() {
+		landmarkPath.setMap(map);
+		infowindow.setContent(marker.title);
+		infowindow.open(map, marker);
+	});
+	google.maps.event.addListener(infowindow,'closeclick', function(){
+		landmarkPath.setMap(null);
+	});
 }
