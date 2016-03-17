@@ -12,12 +12,18 @@
 		$(document).keypress(function(e) {
 	  		if(e.which == 13) {
 		  		var text = timeStamp();
+		  		if (text == "") {
+		  			return;
+		  		}
 		  		$("#log").prepend(text);
 		  		localStorage.text = text + localStorage.text;
 		  		$("#msg").val("");
 		  	}
 		});
 		function timeStamp () {
+			if ($("#msg").val() == "") {
+				return "";
+			}
 		  	var d = new Date();
 		  	var mins = d.getMinutes();
 		  	if (mins >= 10) {
