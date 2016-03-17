@@ -6,22 +6,25 @@
 	<title>Captain's Log</title>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
 	<script>
-	  $(document).keypress(function(e) {
-	  	if(e.which == 13) {
-	  		var text = timeStamp();
-	  		$("#log").prepend("<p>"+text+"</p>");
-	  		localStorage.setItem("text", text);
-	  	}
-	  });
-	  function timeStamp () {
-	  	var d = new Date();
-	  	var mins = d.getMinutes();
-	  	if (mins >= 10) {
-	  		return d.getHours() + ":0" + mins + " " + d.toDateString() + " - " + $("#msg").val();
-	  	} else {
-	  		return d.getHours() + ":0" + mins + " " + d.toDateString() + " - " + $("#msg").val();
-	  	}
-	  }
+		$(document).ready(function() {
+			$("#log").html(localStorage.text);
+		});
+		$(document).keypress(function(e) {
+	  		if(e.which == 13) {
+		  		var text = timeStamp();
+		  		$("#log").prepend(text);
+		  		localStorage.text = text + localStorage.text;
+		  	}
+		});
+		function timeStamp () {
+		  	var d = new Date();
+		  	var mins = d.getMinutes();
+		  	if (mins >= 10) {
+		  		return "<p class = 'item'>" +d.getHours() + ":" + mins + " " + d.toDateString() + " - " + $("#msg").val() + "</p>";
+		  	} else {
+		  		return "<p class = 'item'>" + d.getHours() + ":0" + mins + " " + d.toDateString() + " - " + $("#msg").val() + "</p>";
+		  	}
+		}
 	</script>
 </head>
 
