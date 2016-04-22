@@ -41,11 +41,11 @@ function renderMap() {
 	//after rendering my own position, handle the datastore
 	getClassData();
 }
-
+var myName = "ELIAS_WAS_HERE";
 var classData = {};
 function getClassData() {
 	var xhr = new XMLHttpRequest();
-	xhr.open('POST', "https://defense-in-derpth.herokuapp.com/sendLocation", true);
+	xhr.open('POST', "https://ancient-beach-16992.herokuapp.com/sendLocation", true);
 	xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
 	xhr.onload = function () {
     	classData = JSON.parse(this.responseText);
@@ -53,12 +53,12 @@ function getClassData() {
     	displayLandmarks();
     	displayMyself();
 	};
-	sendstring = "login=PAM_FRANCO&lat="+myLat+"&lng="+myLng
+	sendstring = "login="+myName+"&lat="+myLat+"&lng="+myLng
 	xhr.send(sendstring);
 }
 function displayPeople() {
 	for (i = 0; i < classData.people.length; i++) {
-		if (classData.people[i].login == "PAM_FRANCO") {
+		if (classData.people[i].login == myName) {
 			continue; //skip myself
 		}
 		pplPos = new google.maps.LatLng(classData.people[i].lat, classData.people[i].lng);
@@ -134,7 +134,7 @@ function displayLandmarks() {
 function displayMyself () {
 	marker = new google.maps.Marker({
 		position: me,
-		title: "<p>It's Me!</p><p class = 'login'>PAM_FRANCO</p><p id = closestlandmark>The closest landmark to me, "
+		title: "<p>It's Me!</p><p class = 'login'>"+myName+"</p><p id = closestlandmark>The closest landmark to me, "
 		       +closestLandmark.properties.Location_Name+", is "+closestLandmarkdis+" miles away</p>",		
 		icon: "Smiley1.png"
 	});
