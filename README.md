@@ -1,6 +1,4 @@
-#####################################################
-README FOR ELIAS MARCOPOULOS' COMP 20 GIT RESPOSITORY
-#####################################################
+##README FOR ELIAS MARCOPOULOS' COMP 20 GIT RESPOSITORY
 
 This repository was created to store all of the labs and assignments I had to complete while I was taking COMP 20, Web Programming, in Spring 2016 at Tufts University under the instruction of Professor Ming Chow. The point of writing the code stored in this repository was thereby for me to gain knowledge in how the Web works.
 
